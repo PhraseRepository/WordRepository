@@ -12,9 +12,10 @@ const SignInComponent = (params) => {
       email: emailEntered,
       password: passwordEntered,
     });
-    console.log("Successful sign up");
     if (error) {
       window.alert("Did you mean to sign in?");
+    } else {
+      const { data, error } = await supabase.from("users").insert([{ email: user.email, userId: user.id }]);
     }
   }
   async function signIn() {
@@ -26,6 +27,7 @@ const SignInComponent = (params) => {
       window.alert("Check your email and password and try again!");
     }
     if (user) {
+      console.log(user.id);
       console.log("Successful sign in ");
       changeStatus(true);
     }
