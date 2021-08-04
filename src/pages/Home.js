@@ -1,5 +1,5 @@
-import React from 'react';
-import PhraseCard from '../components/PhraseCard';
+import React from "react";
+import PhraseCard from "../components/PhraseCard";
 
 function Home(props) {
     return (
@@ -7,39 +7,7 @@ function Home(props) {
             <PhraseCard></PhraseCard>
             <PhraseCard></PhraseCard>
             <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-            <PhraseCard></PhraseCard>
-        </div> 
+        </div>
     );
 }
 
