@@ -16,6 +16,7 @@ const SignInComponent = (params) => {
       window.alert("Did you mean to sign in?");
     } else {
       const { data, error } = await supabase.from("users").insert([{ email: user.email, userId: user.id }]);
+      window.alert("You have signed up");
     }
   }
   async function signIn() {
