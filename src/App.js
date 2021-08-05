@@ -5,7 +5,7 @@ import SignIn from "./pages/signin.js";
 import Home from "./pages/Home";
 import Create from "./pages/Create";
 import Navbar from "./components/Navbar";
-
+import Explore from "./pages/Explore";
 import { createClient } from "@supabase/supabase-js";
 const supabase = createClient("https://hiiwioouscmwdgfhobom.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70");
 
@@ -28,10 +28,7 @@ function App() {
               <Create></Create>
             </Route>
             <Route path="/">
-              <div className="App">
-                <h1>HELLO</h1>
-                <Home></Home>
-              </div>
+              <Explore></Explore>
             </Route>
           </Switch>
         </div>
