@@ -28,7 +28,7 @@ const SignInComponent = (params) => {
       window.alert("Check your email and password and try again!");
     }
     if (user) {
-      console.log(user.id);
+      console.log(supabase.auth.user().id);
       console.log("Successful sign in ");
       changeStatus(true);
     }
