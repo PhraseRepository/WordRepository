@@ -26,7 +26,7 @@ body::-webkit-scrollbar {
     box-sizing: border-box;
     flex: 1;
     height: 100%;
-    margin-left: 4rem;
+    margin-right: 4rem;
 }
 
 .navbar {
@@ -40,7 +40,6 @@ body::-webkit-scrollbar {
 
 .phrase-card {
     background-color: var(--secondaryBackground);
-    width: 20%;
 
     border-radius: 1rem;
     /* border-top: 2px solid gray;
@@ -50,6 +49,8 @@ body::-webkit-scrollbar {
 
     padding: 1rem;
     box-sizing: border-box;
+
+    margin-bottom: 2rem;
 }
 
 .phrase-card-text {
@@ -107,4 +108,31 @@ body::-webkit-scrollbar {
     background-color: var(--tertiaryBackground);
     padding: 0.5rem;
     margin-right: 1rem;
+    border-radius: 0.5rem;
+}
+
+.phrase-column {
+    flex: 1;
+    /* height: auto; */
+
+    /* display: grid; */
+    /* justify-content: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    align-items: flex-start; */
+
+    padding: 1rem;
+    box-sizing: 1rem;
+    gap: 2rem;
+}
+
+input[type="text"] {
+    background-color: var(--secondaryBackground);
+    border: none;
+    outline: none;
+
+    font-size: 2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 100%;
 }
