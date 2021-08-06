@@ -34,8 +34,31 @@ body::-webkit-scrollbar {
     position: fixed;
     right: 0;
     top: 0;
-    width: 4rem;
+    /* width: 4rem; */
     background-color: var(--secondaryBackground);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-option {
+    display: block;
+    width: "100%";
+    height: auto;
+    font-size: 3rem;
+    text-align: center;
+    padding: 1rem;
+    color: var(--primary);
+
+    transition: all 200ms ease;
+}
+
+.navbar-option:hover {
+    color: var(--secondary);
+}
+
+.navbar-option:active {
+    color: var(--tertiary);
 }
 
 .phrase-card {
