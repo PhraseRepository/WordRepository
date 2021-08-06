@@ -3,14 +3,22 @@
 }
 
 :root {
-    --primary: #ff009d;
+    --primary: #470bd3;
+    --secondary: #320992;
+    --tertiary: #240669;
+    --primaryBackground: #09090a;
+    --secondaryBackground: #0b0c11;
+    --tertiaryBackground: #0d0d11;
+    --primaryText: #b4b4b4;
+    --secondaryText: #797979;
+    /* --primary: #ff009d;
     --secondary: #d10081;
     --tertiary: #860053;
     --primaryBackground: #ffffff;
     --secondaryBackground: #e9e9e9;
     --tertiaryBackground: #dbdbdb;
     --primaryText: #0c0c0c;
-    --secondaryText: #555555;
+    --secondaryText: #555555; */
 }
 
 body {
@@ -19,6 +27,11 @@ body {
 
 body::-webkit-scrollbar {
     display: none;
+}
+
+h1,
+h2 {
+    color: var(--primaryText);
 }
 
 .page {
@@ -81,8 +94,8 @@ body::-webkit-scrollbar {
 }
 
 .phrase-card-text {
-    font-weight: bold;
-    font-size: 1rem;
+    /* font-weight: bold; */
+    font-size: 1.25rem;
     color: var(--primaryText);
 }
 
@@ -136,6 +149,7 @@ body::-webkit-scrollbar {
     padding: 0.5rem;
     margin-right: 1rem;
     border-radius: 0.5rem;
+    color: var(--secondaryText);
 }
 
 .phrase-column {
@@ -183,7 +197,9 @@ button[type="submit"] {
     border: none;
     outline: none;
 
+    color: var(--primaryText);
     font-size: 2rem;
+    font-weight: bold;
     padding: 1rem;
     border-radius: 1rem;
 
