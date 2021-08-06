@@ -26,7 +26,6 @@ body::-webkit-scrollbar {
     box-sizing: border-box;
     flex: 1;
     height: 100%;
-    margin-right: 4rem;
 }
 
 .navbar {
@@ -51,6 +50,11 @@ body::-webkit-scrollbar {
     color: var(--primary);
 
     transition: all 200ms ease;
+    text-decoration: none !important;
+}
+
+.navbar-option > h1 {
+    font-size: 1.5rem;
 }
 
 .navbar-option:hover {
