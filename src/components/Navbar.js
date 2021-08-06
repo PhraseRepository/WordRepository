@@ -1,14 +1,15 @@
 import React from "react";
 
-import { FaBeer, FaFire, FaGrinAlt, FaGrinHearts, FaSadCry } from "react-icons/fa";
+import { FaFire, FaGrinAlt, FaGrinHearts, FaSadCry, FaSignOutAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Navbar(props) {
     return (
         <>
             <div className='navbar' style={{ position: "unset" }}>
-                <a href='https://google.com' className='navbar-option'>
+                <Link to='/home' className='navbar-option'>
                     <FaFire></FaFire>
-                </a>
+                </Link>
                 <a href='https://google.com' className='navbar-option'>
                     <FaGrinAlt></FaGrinAlt>
                     <h1>Jokes</h1>
@@ -23,9 +24,9 @@ function Navbar(props) {
                 </a>
             </div>
             <div className='navbar' style={{ zIndex: 10 }}>
-                <a href='https://google.com' className='navbar-option'>
+                <Link to='/home' className='navbar-option'>
                     <FaFire></FaFire>
-                </a>
+                </Link>
                 <a href='https://google.com' className='navbar-option'>
                     <FaGrinAlt></FaGrinAlt>
                     <h1>Jokes</h1>
@@ -38,6 +39,10 @@ function Navbar(props) {
                     <FaSadCry></FaSadCry>
                     <h1>Roasts</h1>
                 </a>
+                <div style={{ flex: 1 }}></div>
+                <Link to='/signout' className='navbar-option'>
+                    <FaSignOutAlt></FaSignOutAlt>
+                </Link>
             </div>
         </>
     );

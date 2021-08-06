@@ -31,19 +31,24 @@ const SignInComponent = (params) => {
             window.alert("Check your email and password and try again!");
         }
         if (user) {
-            console.log(supabase.auth.user().id);
+            console.log(supabase.auth.user()?.id);
             console.log("Successful sign in ");
             changeStatus(true);
         }
     }
     return (
         <div>
-            <h1>Email</h1>
-            <input onChange={(e) => setEmail(e.target.value)}></input>
-            <h1>Password</h1>
-            <input onChange={(e) => setPassword(e.target.value)} type='password'></input>
-            <button onClick={signIn}>Sign In</button>
-            <button onClick={signUp}>Sign Up</button>
+            <h1 className='page-heading'>SIGN IN</h1>
+            <h1 className='input-label'>Email</h1>
+            <input type='text' onChange={(e) => setEmail(e.target.value)}></input>
+            <h1 className='input-label'>Password</h1>
+            <input onChange={(e) => setPassword(e.target.value)} type='password' style={{ marginBottom: "2rem" }}></input>
+            <button className='form-button' style={{ marginRight: "2rem" }} onClick={signIn}>
+                Sign In
+            </button>
+            <button className='form-button' onClick={signUp}>
+                Sign Up
+            </button>
             {loggedIn ? <Redirect to='/' /> : <div />}
         </div>
     );

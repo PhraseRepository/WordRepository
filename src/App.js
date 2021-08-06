@@ -8,7 +8,11 @@ import Navbar from "./components/Navbar";
 import Explore from "./pages/Explore";
 import { createClient } from "@supabase/supabase-js";
 import Search from "./pages/Search";
-const supabase = createClient("https://hiiwioouscmwdgfhobom.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70");
+import SignOut from "./pages/SignOut";
+const supabase = createClient(
+    "https://hiiwioouscmwdgfhobom.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70"
+);
 
 function App() {
     return (
@@ -18,8 +22,10 @@ function App() {
                 <div className='page'>
                     <Switch>
                         <Route path='/signin'>
-                            <h1>SIGN IN</h1>
                             <SignIn></SignIn>
+                        </Route>
+                        <Route path='/signout'>
+                            <SignOut></SignOut>
                         </Route>
                         <Route path='/home'>
                             <Home></Home>

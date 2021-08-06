@@ -7,7 +7,7 @@
     --secondary: #320992;
     --tertiary: #240669;
     --primaryBackground: #09090a;
-    --secondaryBackground: #0b0c11;
+    --secondaryBackground: #151720;
     --tertiaryBackground: #0d0d11;
     --primaryText: #b4b4b4;
     --secondaryText: #797979;
@@ -172,7 +172,8 @@ h2 {
     margin-bottom: 2rem;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="password"] {
     background-color: var(--secondaryBackground);
     border: none;
     outline: none;
@@ -183,6 +184,10 @@ input[type="text"] {
     width: 100%;
 
     box-sizing: border-box;
+
+    color: var(--primaryText);
+
+    margin-bottom: 2rem;
 }
 
 button {
@@ -190,7 +195,8 @@ button {
     cursor: pointer;
 }
 
-button[type="submit"] {
+button[type="submit"],
+.form-button {
     opacity: 1 !important;
 
     background-color: var(--secondaryBackground);
@@ -208,11 +214,13 @@ button[type="submit"] {
     background-color: var(--primary);
 }
 
-button[type="submit"]:hover {
+button[type="submit"]:hover,
+.form-button:hover {
     background-color: var(--secondary);
 }
 
-button[type="submit"]:active {
+button[type="submit"]:active,
+.form-button:active {
     background-color: var(--tertiary);
 }
 
@@ -239,4 +247,9 @@ button:active {
     margin-top: 1rem;
     margin-bottom: 2rem;
     color: rgb(235, 42, 42);
+}
+
+.page-heading {
+    font-size: 5rem;
+    margin-bottom: 2rem;
 }

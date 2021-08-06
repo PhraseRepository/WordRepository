@@ -2,7 +2,10 @@ import React from "react";
 import PhraseCard from "../components/PhraseCard";
 import { useState, useEffect, useRef } from "react";
 import { createClient } from "@supabase/supabase-js";
-const supabase = createClient("https://hiiwioouscmwdgfhobom.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70");
+const supabase = createClient(
+    "https://hiiwioouscmwdgfhobom.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70"
+);
 
 function Home(props) {
     // State variable that holds the array of rows that are created by you
@@ -15,7 +18,12 @@ function Home(props) {
 
     async function getPersonal() {
         // this does correctly get the data from supabase
-        const { data, error } = await supabase.from("pickuplines").select().match({ userId: supabase.auth.user().id }).order("date", { ascending: true }).limit(4);
+        const { data, error } = await supabase
+            .from("pickuplines")
+            .select()
+            .match({ userId: supabase.auth.user()?.id })
+            .order("date", { ascending: true })
+            .limit(4);
         // updates the state variable probably where things go wrong
         updatePhrases(data);
         // data.forEach((element) => {
