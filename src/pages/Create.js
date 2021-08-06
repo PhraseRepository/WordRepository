@@ -5,24 +5,19 @@ import { Redirect } from "react-router-dom";
 
 import { createClient } from "@supabase/supabase-js";
 import { Tag } from "./Search";
-const supabase = createClient(
-    "https://hiiwioouscmwdgfhobom.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70"
-);
+const supabase = createClient("https://hiiwioouscmwdgfhobom.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70");
 
 function Create(props) {
     const [tagList, updatedPhrases] = useState([]);
 
     const {
-        register,
-        handleSubmit,
-        watch,
+        register: register,
+        handleSubmit: handleSubmit,
         formState: { errors },
     } = useForm();
     const {
-        register2,
-        handleSubmit2,
-        watch2,
+        register: register2,
+        handleSubmit: handleSubmit2,
         formState: { errors2 },
     } = useForm();
 
@@ -44,10 +39,10 @@ function Create(props) {
         <div>
             <h1 style={{ fontSize: "5rem", marginBottom: "2rem" }}>Add a Roast</h1>
             <div>
-                <form onSubmit={handleSubmit(onTagEntry)}>
+                <form onSubmit={handleSubmit2(onTagEntry)}>
                     {/* register your input into the hook by invoking the "register" function */}
                     <h1 className='input-label'>Describe the person this is for, or the type of line (e.g. pun, bad)</h1>
-                    <input type='text' defaultValue='test' {...register("tag")} placeholder='hi' />
+                    <input type='text' defaultValue='test' {...register2("tag")} placeholder='hi' />
                 </form>
                 <div style={{ marginTop: "2rem" }}>
                     {tagList.map((phrase) => (
