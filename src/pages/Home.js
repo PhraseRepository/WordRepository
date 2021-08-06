@@ -13,17 +13,20 @@ function Home(props) {
 
             <div style={{ width: "100%", display: "flex", flexDirection: "row" }}>
                 <div className='phrase-column'>
+                    <h2>Trending Roasts</h2>
                     <PhraseCard></PhraseCard>
                     <PhraseCard></PhraseCard>
                     <PhraseCard></PhraseCard>
                 </div>
                 <div className='phrase-column'>
+                    <h2>Editors Picks</h2>
                     <PhraseCard></PhraseCard>
                     <PhraseCard></PhraseCard>
                     <PhraseCard></PhraseCard>
                     <PhraseCard></PhraseCard>
                 </div>
                 <div className='phrase-column'>
+                    <h2>Saved</h2>
                     <PhraseCard></PhraseCard>
                     <PhraseCard></PhraseCard>
                 </div>

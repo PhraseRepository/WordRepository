@@ -1,5 +1,5 @@
 * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Jost", sans-serif;
 }
 
 :root {
@@ -122,8 +122,13 @@ body::-webkit-scrollbar {
     align-items: flex-start; */
 
     padding: 1rem;
-    box-sizing: 1rem;
+    box-sizing: border-box;
     gap: 2rem;
+}
+
+.phrase-column > h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }
 
 input[type="text"] {
@@ -135,4 +140,19 @@ input[type="text"] {
     padding: 1rem;
     border-radius: 1rem;
     width: 100%;
+
+    box-sizing: border-box;
+}
+
+button {
+    transition: all 200ms ease;
+    opacity: 1;
+}
+
+button:hover {
+    opacity: 0.7;
+}
+
+button:active {
+    opacity: 0.3;
 }
