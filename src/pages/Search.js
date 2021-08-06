@@ -8,23 +8,23 @@ function Search(props) {
             <div style={{ width: "50vw", padding: "1rem", boxSizing: "border-box", position: "fixed" }}>
                 <input type='text' placeholder='Describe your target...'></input>
                 <div style={{ marginTop: "2rem" }}>
-                    <Tag></Tag>
-                    <Tag></Tag>
-                    <Tag></Tag>
-                    <Tag></Tag>
-                    <Tag></Tag>
-                    <Tag></Tag>
-                    <Tag></Tag>
-                    <Tag></Tag>
-                    <Tag></Tag>
-                    <Tag></Tag>
-                    <Tag></Tag>
-                    <Tag></Tag>
-                    <Tag></Tag>
-                    <Tag></Tag>
-                    <Tag></Tag>
-                    <Tag></Tag>
-                    <Tag></Tag>
+                    <Tag>Hello</Tag>
+                    <Tag>Hello</Tag>
+                    <Tag>Hello</Tag>
+                    <Tag>Hello</Tag>
+                    <Tag>Hello</Tag>
+                    <Tag>Hello</Tag>
+                    <Tag>Hello</Tag>
+                    <Tag>Hello</Tag>
+                    <Tag>Hello</Tag>
+                    <Tag>Hello</Tag>
+                    <Tag>Hello</Tag>
+                    <Tag>Hello</Tag>
+                    <Tag>Hello</Tag>
+                    <Tag>Hello</Tag>
+                    <Tag>Hello</Tag>
+                    <Tag>Hello</Tag>
+                    <Tag>Hello</Tag>
                 </div>
             </div>
             <div className='phrase-column'>
@@ -42,7 +42,7 @@ function Search(props) {
     );
 }
 
-function Tag(props) {
+export function Tag(props) {
     return (
         <div
             className='phrase-card-tag'
@@ -54,7 +54,7 @@ function Tag(props) {
                 alignItems: "center",
                 backgroundColor: "var(--secondaryBackground)",
             }}>
-            Hello
+            {props.children}
             <button
                 style={{
                     marginLeft: "1rem",

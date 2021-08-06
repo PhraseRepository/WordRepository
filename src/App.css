@@ -169,7 +169,31 @@ input[type="text"] {
 
 button {
     transition: all 200ms ease;
-    opacity: 1;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    opacity: 1 !important;
+
+    background-color: var(--secondaryBackground);
+    border: none;
+    outline: none;
+
+    font-size: 2rem;
+    padding: 1rem;
+    border-radius: 1rem;
+
+    box-sizing: border-box;
+
+    background-color: var(--primary);
+}
+
+button[type="submit"]:hover {
+    background-color: var(--secondary);
+}
+
+button[type="submit"]:active {
+    background-color: var(--tertiary);
 }
 
 button:hover {
@@ -178,4 +202,9 @@ button:hover {
 
 button:active {
     opacity: 0.3;
+}
+
+.input-label {
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }

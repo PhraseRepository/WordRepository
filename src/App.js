@@ -35,7 +35,7 @@ function App() {
                             <Search></Search>
                         </Route>
                         <Route path='/'>
-                            <Explore></Explore>
+                            <Home></Home>
                         </Route>
                     </Switch>
                 </div>
