@@ -208,3 +208,15 @@ button:active {
     font-size: 2rem;
     margin-bottom: 2rem;
 }
+
+.input-error:before {
+    content: "❗";
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+.input-error {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    color: rgb(235, 42, 42);
+}

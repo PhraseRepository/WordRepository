@@ -42,6 +42,7 @@ function Create(props) {
     }
     return (
         <div>
+            <h1 style={{ fontSize: "5rem", marginBottom: "2rem" }}>Add a Roast</h1>
             <div>
                 <form onSubmit={handleSubmit(onTagEntry)}>
                     {/* register your input into the hook by invoking the "register" function */}
@@ -58,7 +59,7 @@ function Create(props) {
                 <form onSubmit={handleSubmit(onPickupSubmit)}>
                     <h1 className='input-label'>Enter Pickup Line</h1>
                     <input type='text' {...register("value", { required: true })} placeholder='hi'></input>
-                    {errors.value && <span>Please enter a Pickup Line</span>}
+                    {errors.value && <h1 className='input-error'>Please enter a Pickup Line</h1>}
 
                     <button type='submit' style={{ marginTop: "2rem" }}>
                         Submit
