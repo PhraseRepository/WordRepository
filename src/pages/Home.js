@@ -37,12 +37,7 @@ function Home(props) {
     };
     async function getPersonal() {
         // this does correctly get the data from supabase
-        const { data, error } = await supabase
-            .from("pickuplines")
-            .select()
-            .match({ userId: supabase.auth.user()?.id })
-            .order("date", { ascending: false })
-            .limit(4);
+        const { data, error } = await supabase.from("pickuplines").select().match({ userId: supabase.auth.user()?.id }).order("date", { ascending: false });
         // updates the state variable probably where things go wrong
         updatePhrases(data);
         // data.forEach((element) => {
@@ -66,7 +61,7 @@ function Home(props) {
         } catch (error) {}
     }
     async function addTrending() {
-        const { data, error } = await supabase.from("pickuplines").select().order("likes", { ascending: false }).limit(4);
+        const { data, error } = await supabase.from("pickuplines").select().order("likes", { ascending: false }).limit(8);
         updateTrendingPhrases(data);
     }
     return (
@@ -85,21 +80,21 @@ function Home(props) {
                     <h2>Trending Pickups</h2>
                     {trendingPhrases.map((phraseObject) => {
                         console.log(phraseObject.id);
-                        return <PhraseCard object={phraseObject} key={phraseObject.id}></PhraseCard>;
+                        return <PhraseCard object={phraseObject} key={phraseObject?.id}></PhraseCard>;
                     })}
                 </div>
                 <div className='phrase-column'>
                     <h2>My Pickups</h2>
                     {myPhrases.map((phraseObject) => {
                         console.log(phraseObject.id);
-                        return <PhraseCard object={phraseObject} key={phraseObject.id}></PhraseCard>;
+                        return <PhraseCard object={phraseObject} key={phraseObject?.id}></PhraseCard>;
                     })}
                 </div>
                 <div className='phrase-column'>
                     <h2>Saved Pickups</h2>
                     {savedPhrases.map((phraseObject) => {
                         console.log(phraseObject);
-                        return <PhraseCard object={phraseObject} key={phraseObject.id}></PhraseCard>;
+                        return <PhraseCard object={phraseObject} key={phraseObject?.id}></PhraseCard>;
                     })}
                 </div>
             </div>
