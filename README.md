@@ -9,4 +9,4 @@ Our database is designed using Supabase's database, built on top of POSTGRE.  It
 In the future, additional functionality will be added, such as full, complete, search for different pickup lines, and expansion into roasts, jokes, and compliments.
 
 
-#Get started here: https://phraserepository.github.io/WordRepository/#/signin
+Get started here: https://phraserepository.github.io/WordRepository/#/signin
