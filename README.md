@@ -10,3 +10,5 @@ In the future, additional functionality will be added, such as full, complete, s
 
 
 Get started here: https://phraserepository.github.io/WordRepository/#/signin
+
+![meme](https://user-images.githubusercontent.com/42980809/128591848-d65d42bd-a305-4db8-bdf9-add7e0e02b1d.jpg)
