@@ -10,6 +10,8 @@ const supabase = createClient(
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70"
 );
 
+const natural = require("natural");
+
 function Home(props) {
     // State variable that holds the array of rows that are created by you
     const [myPhrases, updatePhrases] = useState([]);
@@ -32,7 +34,14 @@ function Home(props) {
         getSaved();
     }, [supabase.auth.user()]);
     const searchThings = (data) => {
-        history.push("/search/" + data.value);
+        let tags = data.value;
+        tags = tags.split(" ");
+        tags = tags.map((tag) => {
+            let stemmedTag = natural.PorterStemmer.stem(tag);
+            stemmedTag = stemmedTag.toLowerCase();
+            return stemmedTag;
+        });
+        history.push("/search/" + tags.join("-"));
         changeRedirect(true);
     };
     async function getPersonal() {

@@ -33,7 +33,7 @@ function App() {
                         <Route path='/create'>
                             <Create></Create>
                         </Route>
-                        <Route path='/search'>
+                        <Route path='/search/:tags?'>
                             <Search></Search>
                         </Route>
                         <Route path='/'>
