@@ -33,7 +33,9 @@ h1,
 h2 {
     color: var(--primaryText);
 }
-
+p {
+    color: var(--primaryText);
+}
 .page {
     padding: 4rem;
     box-sizing: border-box;

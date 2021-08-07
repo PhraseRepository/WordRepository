@@ -6,43 +6,74 @@ import { createClient } from "@supabase/supabase-js";
 const supabase = createClient("https://hiiwioouscmwdgfhobom.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70");
 
 const PhraseCard = (props) => {
+    const [author, updateAuthor] = useState("SOMEONE");
+    const [saved, updateStatus] = useState(false);
+    const [likeCount, updateLikes] = useState(0);
+
     useEffect(() => {
-        console.log(props.object);
+        if (supabase.auth.user().id == props.object.userId) {
+            updateAuthor("ME");
+        }
+        updateLikes(props.object.likes);
+        checkSaved();
     }, [props.object]);
+    async function checkSaved() {
+        const { data, error } = await supabase.from("users").select("savedPhrases", "id").match({ userId: supabase.auth.user().id });
+        if (data[0].savedPhrases.includes(props.object.id)) {
+            updateStatus(true);
+        }
+    }
+    async function addLike() {
+        const { data: data2, error2 } = await supabase
+            .from("pickuplines")
+            .update([{ likes: likeCount + 1 }])
+            .match({ id: props.object.id });
+        updateLikes(likeCount + 1);
+    }
     async function addSaves() {
         const { data, error } = await supabase.from("users").select("savedPhrases", "id").match({ userId: supabase.auth.user().id });
         if (data[0].savedPhrases.includes(props.object.id)) {
-            window.alert("You've already saved this item!");
+            var tempSaved = data[0].savedPhrases;
+            const index = tempSaved.indexOf(props.object.id);
+            tempSaved.splice(index, 1);
+            const { data: data2, error2 } = await supabase
+                .from("users")
+                .update([{ savedPhrases: tempSaved }])
+                .match({ userId: supabase.auth.user().id });
+            updateStatus(false);
+
             return;
         }
-        var array = [...data[0].savedPhrases, props.object.id];
+        var array = [props.object.id, ...data[0].savedPhrases];
         console.log(array);
-        const { data2, error2 } = await supabase
+        const { data: data2, error2 } = await supabase
             .from("users")
             .update([{ savedPhrases: array }])
             .match({ userId: supabase.auth.user().id });
+        updateStatus(true);
     }
+
     return (
         <>
             <div className='phrase-card'>
                 <p className='phrase-card-text'>{props.object.data}</p>
                 {/* <p className='phrase-card-author'> */}
-                <a href='https://google.com' className='phrase-card-author'>
-                    by SOMEONE
+                <a href='' className='phrase-card-author'>
+                    by {author}
                 </a>
                 {/* </p> */}
 
                 <div className='phrase-card-actions'>
-                    {/* {props.tags.map((type) => {
-                    <Tag data={type}></Tag>;
-                })} */}
+                    {props.object.tags.map((type) => {
+                        return <Tag data={type}></Tag>;
+                    })}
                 </div>
                 <div className='phrase-card-actions'>
-                    <button className='phrase-card-action'>😭</button>
-                    <button className='phrase-card-action'>😂</button>
-                    <button className='phrase-card-action'>💖</button>
+                    <button className='phrase-card-action' onClick={addLike}>
+                        {likeCount == 1 ? <p>{likeCount} like</p> : <p>{likeCount} Likes</p>}
+                    </button>
                     <button className='phrase-card-action' onClick={addSaves}>
-                        💾
+                        {saved ? <p>saved</p> : <p>not saved</p>}
                     </button>
                 </div>
             </div>
