@@ -7,10 +7,7 @@ import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 const natural = require("natural");
 
-const supabase = createClient(
-    "https://hiiwioouscmwdgfhobom.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70"
-);
+const supabase = createClient("https://hiiwioouscmwdgfhobom.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70");
 
 function Search(props) {
     const [tagList, updatedPhrases] = useState([]);
@@ -125,11 +122,13 @@ export function Tag(props) {
                     fontSize: "2rem",
                     border: "none",
                     backgroundColor: "transparent",
+                    transform: "rotate(" + -45 + "deg)",
+                    color: "var(--secondaryText)",
                     // backgroundColor: "var(--tertiaryBackground)",
                     // aspectRatio: "1/1",
                     // boxSizing: "border-box",
                 }}>
-                X
+                +
             </button>
         </div>
     );
