@@ -44,6 +44,13 @@ function Create(props) {
         const { data, error } = await supabase.from("pickuplines").insert([{ userId: supabase.auth.user().id, data: data5.value, tags: tagList }]);
         navigation.push("/home");
     }
+
+    function removeTag(phrase) {
+        updatedPhrases(tagList.filter((ph) => phrase !== ph));
+    }
+
+    if (supabase.auth.user() == undefined) return <Redirect to='/signin'></Redirect>;
+
     return (
         <div>
             <h1 className='page-heading'>Add a Roast</h1>
@@ -55,7 +62,12 @@ function Create(props) {
                 </form>
                 <div style={{ marginTop: "2rem" }}>
                     {tagList.map((phrase) => (
-                        <Tag>{phrase}</Tag>
+                        <Tag
+                            onClick={function () {
+                                removeTag(phrase);
+                            }}>
+                            {phrase}
+                        </Tag>
                     ))}
                 </div>
             </div>

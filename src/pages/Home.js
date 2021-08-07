@@ -53,15 +53,17 @@ function Home(props) {
         const { data, error } = await supabase.from("users").select("savedPhrases").match({ userId: supabase.auth.user()?.id });
         console.log(data);
         var tempArray = [];
-        for (const savedPostId of data[0].savedPhrases) {
-            const { data: data2, error: error2 } = await supabase.from("pickuplines").select().match({ id: savedPostId });
-            console.log(data2, savedPostId);
-            if (tempArray.length == 4) {
-                break;
+        try {
+            for (const savedPostId of data[0]?.savedPhrases) {
+                const { data: data2, error: error2 } = await supabase.from("pickuplines").select().match({ id: savedPostId });
+                console.log(data2, savedPostId);
+                if (tempArray.length == 4) {
+                    break;
+                }
+                tempArray.push(data2[0]);
             }
-            tempArray.push(data2[0]);
-        }
-        updateSavedPhrases(tempArray);
+            updateSavedPhrases(tempArray);
+        } catch (error) {}
     }
     async function addTrending() {
         const { data, error } = await supabase.from("pickuplines").select().order("likes", { ascending: false }).limit(4);

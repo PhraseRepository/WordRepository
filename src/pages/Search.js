@@ -57,6 +57,7 @@ export function Tag(props) {
             }}>
             {props.children}
             <button
+                onClick={props.onClick}
                 style={{
                     marginLeft: "1rem",
                     fontSize: "2rem",

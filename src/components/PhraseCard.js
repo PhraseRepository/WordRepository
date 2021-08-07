@@ -15,19 +15,22 @@ const PhraseCard = (props) => {
     const [likeCount, updateLikes] = useState(0);
 
     useEffect(() => {
-        if (supabase.auth.user().id == props.object.userId) {
+        if (supabase.auth.user()?.id == props.object.userId) {
             updateAuthor("ME");
         }
         updateLikes(props.object.likes);
         checkSaved();
     }, [props.object]);
     async function checkSaved() {
-        const { data, error } = await supabase.from("users").select("savedPhrases", "id").match({ userId: supabase.auth.user().id });
-        if (data[0].savedPhrases.includes(props.object.id)) {
-            updateStatus(true);
-        }
+        try {
+            const { data, error } = await supabase.from("users").select("savedPhrases", "id").match({ userId: supabase.auth.user()?.id });
+            if (data[0].savedPhrases.includes(props.object.id)) {
+                updateStatus(true);
+            }
+        } catch (error) {}
     }
     async function addLike() {
+        if (!supabase.auth.user()) return;
         const { data: data2, error2 } = await supabase
             .from("pickuplines")
             .update([{ likes: likeCount + 1 }])
@@ -35,6 +38,7 @@ const PhraseCard = (props) => {
         updateLikes(likeCount + 1);
     }
     async function addSaves() {
+        if (!supabase.auth.user()) return;
         const { data, error } = await supabase.from("users").select("savedPhrases", "id").match({ userId: supabase.auth.user().id });
         if (data[0].savedPhrases.includes(props.object.id)) {
             var tempSaved = data[0].savedPhrases;
