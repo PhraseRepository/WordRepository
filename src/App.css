@@ -120,9 +120,9 @@ p {
 
     margin-top: 1rem;
 
-    display: flex;
+    /* display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: flex-start; */
 }
 
 .phrase-card-action {
@@ -150,6 +150,7 @@ p {
     background-color: var(--tertiaryBackground);
     padding: 0.5rem;
     margin-right: 1rem;
+    margin-bottom: 1rem;
     border-radius: 0.5rem;
     color: var(--secondaryText);
 }

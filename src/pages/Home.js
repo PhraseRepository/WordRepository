@@ -5,7 +5,10 @@ import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
 
 import { createClient } from "@supabase/supabase-js";
-const supabase = createClient("https://hiiwioouscmwdgfhobom.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70");
+const supabase = createClient(
+    "https://hiiwioouscmwdgfhobom.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70"
+);
 
 function Home(props) {
     // State variable that holds the array of rows that are created by you
@@ -34,7 +37,12 @@ function Home(props) {
     };
     async function getPersonal() {
         // this does correctly get the data from supabase
-        const { data, error } = await supabase.from("pickuplines").select().match({ userId: supabase.auth.user()?.id }).order("date", { ascending: false }).limit(4);
+        const { data, error } = await supabase
+            .from("pickuplines")
+            .select()
+            .match({ userId: supabase.auth.user()?.id })
+            .order("date", { ascending: false })
+            .limit(4);
         // updates the state variable probably where things go wrong
         updatePhrases(data);
         // data.forEach((element) => {
@@ -63,7 +71,7 @@ function Home(props) {
         <div>
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", padding: "1rem", boxSizing: "border-box" }}>
                 <h1 style={{ fontSize: "5rem", marginBottom: "1rem" }}>
-                    FIND THE PERFECT <span style={{ textDecoration: "underline" }}>ROAST</span>
+                    FIND THE PERFECT <span style={{ textDecoration: "underline" }}>PICKUP LINE</span>
                 </h1>
                 <form onSubmit={handleSubmit(searchThings)}>
                     <input type='text' {...register("value", { required: true })} placeholder='Describe your target...'></input>
@@ -72,21 +80,21 @@ function Home(props) {
 
             <div style={{ width: "100%", display: "flex", flexDirection: "row" }}>
                 <div className='phrase-column'>
-                    <h2>Trending Roasts</h2>
+                    <h2>Trending Pickups</h2>
                     {trendingPhrases.map((phraseObject) => {
                         console.log(phraseObject.id);
                         return <PhraseCard object={phraseObject} key={phraseObject.id}></PhraseCard>;
                     })}
                 </div>
                 <div className='phrase-column'>
-                    <h2>My Roasts</h2>
+                    <h2>My Pickups</h2>
                     {myPhrases.map((phraseObject) => {
                         console.log(phraseObject.id);
                         return <PhraseCard object={phraseObject} key={phraseObject.id}></PhraseCard>;
                     })}
                 </div>
                 <div className='phrase-column'>
-                    <h2>Saved Roasts</h2>
+                    <h2>Saved Pickups</h2>
                     {savedPhrases.map((phraseObject) => {
                         console.log(phraseObject);
                         return <PhraseCard object={phraseObject} key={phraseObject.id}></PhraseCard>;

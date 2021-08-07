@@ -3,7 +3,10 @@ import React from "react";
 import { useState, useEffect, useRef } from "react";
 
 import { createClient } from "@supabase/supabase-js";
-const supabase = createClient("https://hiiwioouscmwdgfhobom.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70");
+const supabase = createClient(
+    "https://hiiwioouscmwdgfhobom.supabase.co",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70"
+);
 
 const PhraseCard = (props) => {
     const [author, updateAuthor] = useState("SOMEONE");
@@ -69,12 +72,12 @@ const PhraseCard = (props) => {
                         return <Tag data={type}></Tag>;
                     })}
                 </div>
-                <div className='phrase-card-actions'>
+                <div className='phrase-card-actions' style={{ marginTop: 0 }}>
                     <button className='phrase-card-action' onClick={addLike}>
-                        {likeCount == 1 ? <p>{likeCount} like</p> : <p>{likeCount} Likes</p>}
+                        {likeCount == 1 ? <p>{likeCount} Like</p> : <p>{likeCount} Likes</p>}
                     </button>
                     <button className='phrase-card-action' onClick={addSaves}>
-                        {saved ? <p>saved</p> : <p>not saved</p>}
+                        {saved ? <p>Saved</p> : <p>Save</p>}
                     </button>
                 </div>
             </div>
