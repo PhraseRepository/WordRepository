@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/WordRepository/static/css/main.93232ce7.chunk.css",
-    "main.js": "/WordRepository/static/js/main.10b7686a.chunk.js",
-    "main.js.map": "/WordRepository/static/js/main.10b7686a.chunk.js.map",
-    "runtime-main.js": "/WordRepository/static/js/runtime-main.24a4fb77.js",
-    "runtime-main.js.map": "/WordRepository/static/js/runtime-main.24a4fb77.js.map",
-    "static/js/2.f7fde5ec.chunk.js": "/WordRepository/static/js/2.f7fde5ec.chunk.js",
-    "static/js/2.f7fde5ec.chunk.js.map": "/WordRepository/static/js/2.f7fde5ec.chunk.js.map",
-    "static/js/3.73b49b1b.chunk.js": "/WordRepository/static/js/3.73b49b1b.chunk.js",
-    "static/js/3.73b49b1b.chunk.js.map": "/WordRepository/static/js/3.73b49b1b.chunk.js.map",
+    "main.css": "/WordRepository/static/css/main.8fbf90b7.chunk.css",
+    "main.js": "/WordRepository/static/js/main.08fbd993.chunk.js",
+    "main.js.map": "/WordRepository/static/js/main.08fbd993.chunk.js.map",
+    "runtime-main.js": "/WordRepository/static/js/runtime-main.65af5ffb.js",
+    "runtime-main.js.map": "/WordRepository/static/js/runtime-main.65af5ffb.js.map",
+    "static/js/2.af561562.chunk.js": "/WordRepository/static/js/2.af561562.chunk.js",
+    "static/js/2.af561562.chunk.js.map": "/WordRepository/static/js/2.af561562.chunk.js.map",
+    "static/js/3.579a79ee.chunk.js": "/WordRepository/static/js/3.579a79ee.chunk.js",
+    "static/js/3.579a79ee.chunk.js.map": "/WordRepository/static/js/3.579a79ee.chunk.js.map",
     "index.html": "/WordRepository/index.html",
-    "static/css/main.93232ce7.chunk.css.map": "/WordRepository/static/css/main.93232ce7.chunk.css.map",
-    "static/js/2.f7fde5ec.chunk.js.LICENSE.txt": "/WordRepository/static/js/2.f7fde5ec.chunk.js.LICENSE.txt",
+    "static/css/main.8fbf90b7.chunk.css.map": "/WordRepository/static/css/main.8fbf90b7.chunk.css.map",
+    "static/js/2.af561562.chunk.js.LICENSE.txt": "/WordRepository/static/js/2.af561562.chunk.js.LICENSE.txt",
     "static/media/logo.6ce24c58.svg": "/WordRepository/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.24a4fb77.js",
-    "static/js/2.f7fde5ec.chunk.js",
-    "static/css/main.93232ce7.chunk.css",
-    "static/js/main.10b7686a.chunk.js"
+    "static/js/runtime-main.65af5ffb.js",
+    "static/js/2.af561562.chunk.js",
+    "static/css/main.8fbf90b7.chunk.css",
+    "static/js/main.08fbd993.chunk.js"
   ]
 }
