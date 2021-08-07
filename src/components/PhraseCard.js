@@ -8,6 +8,7 @@ const supabase = createClient("https://hiiwioouscmwdgfhobom.supabase.co", "eyJhb
 const PhraseCard = (props) => {
     const [author, updateAuthor] = useState("SOMEONE");
     const [saved, updateStatus] = useState(false);
+    const [likeAllowed, updateLikeStatus] = useState(true);
     const [likeCount, updateLikes] = useState(0);
 
     useEffect(() => {

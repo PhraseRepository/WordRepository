@@ -1,10 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Redirect } from "react-router-dom";
 import { createClient } from "@supabase/supabase-js";
-const supabase = createClient(
-    "https://hiiwioouscmwdgfhobom.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70"
-);
+const supabase = createClient("https://hiiwioouscmwdgfhobom.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70");
 
 const SignInComponent = (params) => {
     const [emailEntered, setEmail] = useState("");
@@ -49,7 +46,7 @@ const SignInComponent = (params) => {
             <button className='form-button' onClick={signUp}>
                 Sign Up
             </button>
-            {loggedIn ? <Redirect to='/' /> : <div />}
+            {loggedIn && supabase.auth.user() !== undefined ? <Redirect to='/' /> : <div />}
         </div>
     );
 };
