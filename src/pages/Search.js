@@ -18,6 +18,7 @@ function Search(props) {
     let params = useParams();
     const [matchingPhrases, updateMatch] = useState([]);
     useEffect(() => {}, [supabase.auth.user()]);
+
     const {
         register: register,
         handleSubmit: handleSubmit,
@@ -28,25 +29,29 @@ function Search(props) {
         handleSubmit: handleSubmit2,
         formState: { errors2 },
     } = useForm();
+
     function removeTag(phrase) {
         let newAr = tagList.filter((ph) => phrase !== ph);
         updatedPhrases(newAr);
         console.log("newAr");
         console.log(newAr);
     }
-    function search2() {
-        search();
-    }
+
     async function search() {
         console.log(tagList);
-        const { data: data2, error: error2 } = await supabase.from("pickuplines").select().contains("tags", tagList);
+        const { data: data2, error: error2 } = await supabase.from("pickuplines").select().contains("tags", tagList).limit(10);
         updateMatch(data2);
     }
     const onTagEntry = (data, e) => {
         let stemmedTag = natural.PorterStemmer.stem(data.tag);
         stemmedTag = stemmedTag.toLowerCase();
         if (!tagList.includes(stemmedTag)) {
-            updatedPhrases([...tagList, stemmedTag]);
+            if (stemmedTag !== "") {
+                console.log("asdfasdfasdfads");
+                console.log(stemmedTag);
+                console.log(tagList);
+                updatedPhrases([stemmedTag].concat(tagList));
+            }
         }
         e.target.reset();
     };
@@ -75,18 +80,18 @@ function Search(props) {
                     <input type='text' {...register2("tag")} placeholder='tags...' id='searchBox' />
 
                     <div style={{ marginTop: "2rem" }}></div>
-                    {tagList.map((phrase) => {
-                        console.log(phrase);
-                        return (
-                            <Tag
-                                onClick={function () {
-                                    removeTag(phrase);
-                                }}>
-                                {phrase}
-                            </Tag>
-                        );
-                    })}
                 </form>
+                {tagList.map((phrase) => {
+                    console.log(phrase);
+                    return (
+                        <Tag
+                            onClick={function () {
+                                removeTag(phrase);
+                            }}>
+                            {phrase}
+                        </Tag>
+                    );
+                })}
             </div>
             <div className='phrase-column'>
                 {!!matchingPhrases &&
