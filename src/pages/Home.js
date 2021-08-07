@@ -113,7 +113,7 @@ function Home(props) {
                         console.log(phraseObject);
                         return <PhraseCard object={phraseObject} key={phraseObject?.id}></PhraseCard>;
                     })}
-                    {savedPhrases.length == 0 ? <h1>Save pickup lines by pressing the save icon</h1> : <div></div>}
+                    {savedPhrases.length == 0 ? <h1>Save pickup lines by pressing the save icon (and reloading)</h1> : <div></div>}
                 </div>
             </div>
         </div>

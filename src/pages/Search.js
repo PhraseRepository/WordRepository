@@ -54,8 +54,10 @@ function Search(props) {
     };
 
     useEffect(function () {
-        let loadedTags = params.tags.split("-");
-        updatedPhrases(loadedTags);
+        if (params.tags) {
+            let loadedTags = params.tags.split("-");
+            updatedPhrases(loadedTags);
+        }
         search();
     }, []);
 
