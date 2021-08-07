@@ -5,10 +5,7 @@ import { Redirect, useHistory } from "react-router-dom";
 
 import { createClient } from "@supabase/supabase-js";
 import { Tag } from "./Search";
-const supabase = createClient(
-    "https://hiiwioouscmwdgfhobom.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70"
-);
+const supabase = createClient("https://hiiwioouscmwdgfhobom.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70");
 const natural = require("natural");
 
 function Create(props) {
@@ -53,7 +50,7 @@ function Create(props) {
 
     return (
         <div>
-            <h1 className='page-heading'>Add a Roast</h1>
+            <h1 className='page-heading'>Add a Pickup Line</h1>
             <div>
                 <form onSubmit={handleSubmit2(onTagEntry)}>
                     {/* register your input into the hook by invoking the "register" function */}
