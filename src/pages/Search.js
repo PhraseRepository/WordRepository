@@ -1,5 +1,6 @@
 import React from "react";
 import PhraseCard from "../components/PhraseCard";
+import { useHistory } from "react-router";
 
 function Search(props) {
     return (
@@ -28,6 +29,7 @@ function Search(props) {
                 </div>
             </div>
             <div className='phrase-column'>
+                {/* <PhraseCard></PhraseCard>
                 <PhraseCard></PhraseCard>
                 <PhraseCard></PhraseCard>
                 <PhraseCard></PhraseCard>
@@ -35,8 +37,7 @@ function Search(props) {
                 <PhraseCard></PhraseCard>
                 <PhraseCard></PhraseCard>
                 <PhraseCard></PhraseCard>
-                <PhraseCard></PhraseCard>
-                <PhraseCard></PhraseCard>
+                <PhraseCard></PhraseCard> */}
             </div>
         </div>
     );

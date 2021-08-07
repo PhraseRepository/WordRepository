@@ -1,6 +1,9 @@
 import React from "react";
 import PhraseCard from "../components/PhraseCard";
 import { useState, useEffect, useRef } from "react";
+import { useForm } from "react-hook-form";
+import { useHistory } from "react-router";
+
 import { createClient } from "@supabase/supabase-js";
 const supabase = createClient("https://hiiwioouscmwdgfhobom.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70");
 
@@ -9,6 +12,14 @@ function Home(props) {
     const [myPhrases, updatePhrases] = useState([]);
     const [savedPhrases, updateSavedPhrases] = useState([]);
     const [trendingPhrases, updateTrendingPhrases] = useState([]);
+    const [redirect, changeRedirect] = useState(false);
+    let history = useHistory();
+
+    const {
+        register: register,
+        handleSubmit: handleSubmit,
+        formState: { errors },
+    } = useForm();
 
     useEffect(() => {
         console.log("hello");
@@ -17,7 +28,10 @@ function Home(props) {
         getPersonal();
         getSaved();
     }, [supabase.auth.user()]);
-
+    const searchThings = (data) => {
+        history.push("/search/" + data.value);
+        changeRedirect(true);
+    };
     async function getPersonal() {
         // this does correctly get the data from supabase
         const { data, error } = await supabase.from("pickuplines").select().match({ userId: supabase.auth.user()?.id }).order("date", { ascending: false }).limit(4);
@@ -51,7 +65,9 @@ function Home(props) {
                 <h1 style={{ fontSize: "5rem", marginBottom: "1rem" }}>
                     FIND THE PERFECT <span style={{ textDecoration: "underline" }}>ROAST</span>
                 </h1>
-                <input type='text' placeholder='Describe your target...'></input>
+                <form onSubmit={handleSubmit(searchThings)}>
+                    <input type='text' {...register("value", { required: true })} placeholder='Describe your target...'></input>
+                </form>
             </div>
 
             <div style={{ width: "100%", display: "flex", flexDirection: "row" }}>
