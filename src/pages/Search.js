@@ -1,8 +1,18 @@
 import React from "react";
 import PhraseCard from "../components/PhraseCard";
-import { useHistory } from "react-router";
+import { useLocation } from "react-router";
+import { useState, useEffect, useRef } from "react";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient("https://hiiwioouscmwdgfhobom.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70");
 
 function Search(props) {
+    let location = useLocation();
+    useEffect(() => {}, [supabase.auth.user()]);
+
+    async function search() {
+        const [data, error] = await supabase.from("pickuplines").select().textSearch("input");
+    }
     return (
         <div style={{ display: "flex", flexDirection: "row" }}>
             <div style={{ width: "50vw", padding: "1rem", boxSizing: "border-box" }}></div>
