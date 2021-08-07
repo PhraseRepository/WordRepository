@@ -1,12 +1,9 @@
 // import { SupabaseAuthClient } from "@supabase/supabase-js/dist/main/lib/SupabaseAuthClient";
 import React from "react";
 import { useState, useEffect, useRef } from "react";
-
+import { Link } from "react-router-dom";
 import { createClient } from "@supabase/supabase-js";
-const supabase = createClient(
-    "https://hiiwioouscmwdgfhobom.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70"
-);
+const supabase = createClient("https://hiiwioouscmwdgfhobom.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70");
 
 const PhraseCard = (props) => {
     const [author, updateAuthor] = useState("SOMEONE");
@@ -119,11 +116,7 @@ const PhraseCard = (props) => {
                 </div>
                 <div className='phrase-card-actions' style={{ marginTop: 0 }}>
                     <button className='phrase-card-action' onClick={addLike} style={{ backgroundColor: isLiked ? "#ffdd00" : "" }}>
-                        {likeCount == 1 ? (
-                            <p style={{ color: isLiked ? "black" : "" }}>{likeCount} 💜</p>
-                        ) : (
-                            <p style={{ color: isLiked ? "black" : "" }}>{likeCount} 💜</p>
-                        )}
+                        {likeCount == 1 ? <p style={{ color: isLiked ? "black" : "" }}>{likeCount} 💜</p> : <p style={{ color: isLiked ? "black" : "" }}>{likeCount} 💜</p>}
                     </button>
                     <button className='phrase-card-action' onClick={addSaves} style={{ backgroundColor: saved ? "var(--primary)" : "" }}>
                         💾
@@ -136,7 +129,11 @@ const PhraseCard = (props) => {
 };
 
 function Tag(props) {
-    return <div className='phrase-card-tag'>{props.data}</div>;
+    return (
+        <Link className='phrase-card-tag' to={"/search/" + props.data}>
+            {props.data}
+        </Link>
+    );
 }
 
 export default PhraseCard;

@@ -56,6 +56,7 @@ function Search(props) {
     useEffect(function () {
         let loadedTags = params.tags.split("-");
         updatedPhrases(loadedTags);
+        search();
     }, []);
 
     useEffect(
