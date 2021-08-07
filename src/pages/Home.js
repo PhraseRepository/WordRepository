@@ -3,12 +3,9 @@ import PhraseCard from "../components/PhraseCard";
 import { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router";
-
+import { Link } from "react-router-dom";
 import { createClient } from "@supabase/supabase-js";
-const supabase = createClient(
-    "https://hiiwioouscmwdgfhobom.supabase.co",
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70"
-);
+const supabase = createClient("https://hiiwioouscmwdgfhobom.supabase.co", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYyODA0MTA5NiwiZXhwIjoxOTQzNjE3MDk2fQ.uMF3eAqCD2zgJnJJL6h2rKYSH-d2H6rsGrXGF74X-70");
 
 const natural = require("natural");
 
@@ -98,6 +95,17 @@ function Home(props) {
                         console.log(phraseObject.id);
                         return <PhraseCard object={phraseObject} key={phraseObject?.id}></PhraseCard>;
                     })}
+                    {myPhrases.length == 0 ? (
+                        <h1>
+                            Create pickup lines from the{" "}
+                            <Link to='/create' style={{ color: "var(--primaryText" }}>
+                                Create
+                            </Link>{" "}
+                            page
+                        </h1>
+                    ) : (
+                        <div></div>
+                    )}
                 </div>
                 <div className='phrase-column'>
                     <h2>Saved Pickups</h2>
@@ -105,6 +113,7 @@ function Home(props) {
                         console.log(phraseObject);
                         return <PhraseCard object={phraseObject} key={phraseObject?.id}></PhraseCard>;
                     })}
+                    {savedPhrases.length == 0 ? <h1>Save pickup lines by pressing the save icon</h1> : <div></div>}
                 </div>
             </div>
         </div>
