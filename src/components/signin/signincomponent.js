@@ -13,7 +13,7 @@ const SignInComponent = (params) => {
             password: passwordEntered,
         });
         if (error) {
-            window.alert("Did you mean to sign in?");
+            window.alert("Sorry, something went wrong.");
         } else {
             const { data, error } = await supabase.from("users").insert([{ email: user?.email, userId: user?.id }]);
             window.alert("You have signed up");
