@@ -45,7 +45,7 @@ function Create(props) {
     function removeTag(phrase) {
         updatedPhrases(tagList.filter((ph) => phrase !== ph));
     }
-
+    console.log(supabase.auth.user());
     if (supabase.auth.user() == undefined) return <Redirect to='/signin'></Redirect>;
 
     return (
