@@ -10,8 +10,21 @@ const natural = require("natural");
 
 function Create(props) {
     const [tagList, updatedPhrases] = useState([]);
+    const [logout, setLogout] = useState(false);
     const navigation = useHistory();
 
+    useEffect(() => {
+        const user = supabase.auth.user();
+        console.log("Waiting...");
+        console.log("Waiting...");
+        console.log("Waiting...");
+        console.log(user);
+        if (user == undefined) {
+            setLogout(true);
+        } else {
+            setLogout(false);
+        }
+    }, [supabase.auth.user()]);
     const {
         register: register,
         handleSubmit: handleSubmit,
@@ -45,8 +58,8 @@ function Create(props) {
     function removeTag(phrase) {
         updatedPhrases(tagList.filter((ph) => phrase !== ph));
     }
-    console.log(supabase.auth.user());
-    if (supabase.auth.user() == undefined) return <Redirect to='/signin'></Redirect>;
+    // console.log(supabase.auth.user());
+    // if (supabase.auth.user() == undefined) return <Redirect to='/signin'></Redirect>;
 
     return (
         <div>
@@ -79,6 +92,7 @@ function Create(props) {
                     </button>
                 </form>
             </div>
+            {logout ? <Redirect to='/signin'></Redirect> : <div />}
         </div>
     );
 }
