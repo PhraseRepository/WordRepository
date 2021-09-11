@@ -14,6 +14,9 @@ function Create(props) {
     const navigation = useHistory();
 
     useEffect(() => {
+        setTimeout(delayedUser, 1000);
+    }, []);
+    function delayedUser() {
         const user = supabase.auth.user();
         console.log("Waiting...");
         console.log("Waiting...");
@@ -24,7 +27,7 @@ function Create(props) {
         } else {
             setLogout(false);
         }
-    }, [supabase.auth.user()]);
+    }
     const {
         register: register,
         handleSubmit: handleSubmit,
