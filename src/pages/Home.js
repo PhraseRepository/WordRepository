@@ -85,7 +85,6 @@ function Home(props) {
                 <div className='phrase-column'>
                     <h2>Trending Pickups</h2>
                     {trendingPhrases.map((phraseObject) => {
-                        console.log(phraseObject.id);
                         return <PhraseCard object={phraseObject} key={phraseObject?.id}></PhraseCard>;
                     })}
                 </div>

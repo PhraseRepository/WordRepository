@@ -13,21 +13,7 @@ function Create(props) {
     const [logout, setLogout] = useState(false);
     const navigation = useHistory();
 
-    useEffect(() => {
-        setTimeout(delayedUser, 1000);
-    }, []);
-    function delayedUser() {
-        const user = supabase.auth.user();
-        console.log("Waiting...");
-        console.log("Waiting...");
-        console.log("Waiting...");
-        console.log(user);
-        if (user == undefined) {
-            setLogout(true);
-        } else {
-            setLogout(false);
-        }
-    }
+    useEffect(() => {}, []);
     const {
         register: register,
         handleSubmit: handleSubmit,
